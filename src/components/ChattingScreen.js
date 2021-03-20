@@ -2,20 +2,22 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Header from './Header';
 import MessageSender from './MessageSender';
+import pengsoo from '../images/pengsoo.jpeg';
+import yb from '../images/yb.jpg';
 
 export default function ChattingScreen() {
-  const EUNKO = 'https://img.techpowerup.org/200908/eun.png';
-  const COOL = 'https://img.techpowerup.org/200908/NjRiY2JjOGU5YzQz.png';
+  const PENGSOO = pengsoo;
+  const YB = yb;
 
   const MSGLIST = [
-    { user: true, content: '안녕하세요 12기 프론트엔드 개발자분들' },
+    { user: true, content: '안녕하세요 13기 프론트엔드 개발자분들' },
     { user: true, content: '저희의 대화를 마음껏 조작해보세요 💌' },
     { user: true, content: '상단에 프로필을 눌러서 발신자 변경하면 됩니당~' },
-    { user: false, content: '안녕 은아' },
-    { user: false, content: '뭐해 ?' },
-    { user: true, content: '시원아 넌 최고의 팀장이야' },
-    { user: false, content: '나도 아니까  ' },
-    { user: false, content: '그만 말해줘도 돼' },
+    { user: false, content: '펭하!' },
+    { user: false, content: '오랜만갑' },
+    { user: true, content: '빈아 프사 보니까 밀라노니?' },
+    { user: false, content: '아니 한국' },
+    { user: false, content: '가고싶어서' },
     { user: true, content: 'ㅠㅠ' },
   ];
 
@@ -58,15 +60,15 @@ export default function ChattingScreen() {
     <Wrapper>
       <Header
         {...{ changeUser }}
-        user={newMessage.user ? '고은' : '정쿨'}
-        imgURL={newMessage.user ? EUNKO : COOL}
+        user={newMessage.user ? '펭수' : '빈이'}
+        imgURL={newMessage.user ? PENGSOO: YB}
       ></Header>
       <MessageList>
         {messageList.map((message, index) => {
           if (message.user) {
             return (
               <ChatLine left>
-                <Profile src={EUNKO} width='50' height='50' />
+                <Profile src={PENGSOO} width='50' height='50' />
                 <ChatBox left>{message.content}</ChatBox>
               </ChatLine>
             );
@@ -74,7 +76,7 @@ export default function ChattingScreen() {
           return (
             <ChatLine>
               <ChatBox>{message.content}</ChatBox>
-              <Profile src={COOL} width='50' height='50' />
+              <Profile src={YB} width='50' height='50' />
             </ChatLine>
           );
         })}
